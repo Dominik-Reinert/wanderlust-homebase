@@ -2,11 +2,16 @@ import { Slot, component$ } from "@builder.io/qwik";
 
 interface TextProps {
   size: "small" | "medium" | "large";
+  uppercase?: boolean;
 }
 
 export const Text = component$((props: TextProps) => {
   return (
-    <div class={getSizeClasses(props.size)}>
+    <div
+      class={`${getSizeClasses(props.size)} ${
+        props.uppercase ? "uppercase" : ""
+      }`}
+    >
       <Slot />
     </div>
   );
