@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { Button } from "~/components/button";
 import { Gallery } from "~/components/gallery";
 import { Text } from "~/components/text";
 
@@ -38,6 +39,10 @@ export default component$(() => {
           Events wie Mittagessen oder Billardspielen austauscht. Erleben Sie das
           pulsierende Stadtleben direkt vor unserer Tür!
         </Text>
+        <Button variant="primary" label="hello button" />
+      </div>
+      <div class="flex flex-col gap-4 p-7 md:p-10">
+        
       </div>
     </div>
   );
