@@ -2,6 +2,7 @@
 import { component$ } from "@builder.io/qwik";
 import { Button } from "~/components/button";
 import { Gallery } from "~/components/gallery";
+import { Package } from "~/components/package";
 import { Service } from "~/components/service";
 import { Text } from "~/components/text";
 import {
@@ -76,6 +77,17 @@ export default component$(() => {
         <Service description="Küche & Snacks">
           <HouseRoomsIcon q:slot="icon" className="m-auto" />
         </Service>
+      </div>
+
+      <div class="flex flex-col gap-10 md:gap-12">
+        <Text size="large" center bold>
+          Cowork Pakete
+        </Text>
+        <Package title="Tagespass" price="15€" deskType="flexible" />
+        <Package title="Wochenpass" price="70€" deskType="flexible" />
+        <Package title="Monatspass" price="200€" deskType="fixed" />
+        <Package title="Monatspass" price="150€" deskType="flexible" />
+        <Package title="Meeting room" price="10€ / h" deskType="flexible" />
       </div>
     </div>
   );
