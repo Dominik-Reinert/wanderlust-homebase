@@ -1,3 +1,4 @@
+/* eslint-disable qwik/no-react-props */
 import { component$ } from "@builder.io/qwik";
 import { Button } from "~/components/button";
 import { Gallery } from "~/components/gallery";
@@ -48,18 +49,18 @@ export default component$(() => {
         </Text>
         <Button variant="primary" label="hello button" />
       </div>
-      <div class="flex flex-col gap-4 p-7 md:p-10">
+      <div class="flex gap-4 flex-wrap p-7 md:p-10 ">
         <Service description="Kostenloses Wifi">
-          <WifiIcon q:slot="icon" />
+          <WifiIcon q:slot="icon" className="m-auto" />
         </Service>
         <Service description="Ergonomische Ausstattung">
-          <CutSolidWithCurveIcon q:slot="icon" />
+          <CutSolidWithCurveIcon q:slot="icon" className="m-auto" />
         </Service>
         <Service description="Community events">
-          <ArcheryIcon q:slot="icon" />
+          <ArcheryIcon q:slot="icon" className="m-auto" />
         </Service>
         <Service description="Workshops & Learning area">
-          <BookStackIcon q:slot="icon" />
+          <BookStackIcon q:slot="icon" className="m-auto" />
         </Service>
       </div>
     </div>
