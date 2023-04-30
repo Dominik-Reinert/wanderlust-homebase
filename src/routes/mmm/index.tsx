@@ -1,7 +1,14 @@
 import { component$ } from "@builder.io/qwik";
 import { Button } from "~/components/button";
 import { Gallery } from "~/components/gallery";
+import { Service } from "~/components/service";
 import { Text } from "~/components/text";
+import {
+  ArcheryIcon,
+  BookStackIcon,
+  CutSolidWithCurveIcon,
+  WifiIcon,
+} from "~/integrations/react/iconoir";
 
 export default component$(() => {
   return (
@@ -42,7 +49,18 @@ export default component$(() => {
         <Button variant="primary" label="hello button" />
       </div>
       <div class="flex flex-col gap-4 p-7 md:p-10">
-        
+        <Service description="Kostenloses Wifi">
+          <WifiIcon q:slot="icon" />
+        </Service>
+        <Service description="Ergonomische Ausstattung">
+          <CutSolidWithCurveIcon q:slot="icon" />
+        </Service>
+        <Service description="Community events">
+          <ArcheryIcon q:slot="icon" />
+        </Service>
+        <Service description="Workshops & Learning area">
+          <BookStackIcon q:slot="icon" />
+        </Service>
       </div>
     </div>
   );
