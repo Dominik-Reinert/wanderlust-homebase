@@ -3,6 +3,11 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
+      minWidth: {
+        "25vw": "25vw",
+        "50vw": "50vw",
+        "75vw": "75vw"
+      },
       maxHeight: {
         '90vh': '90vh'
       },

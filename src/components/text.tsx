@@ -4,6 +4,7 @@ interface TextProps {
   size: "small" | "medium" | "large";
   uppercase?: boolean;
   bold?: boolean;
+  center?: boolean;
 }
 
 export const Text = component$((props: TextProps) => {
@@ -12,6 +13,7 @@ export const Text = component$((props: TextProps) => {
       class={`${getSizeClasses(props.size)} 
       ${props.uppercase ? "uppercase" : ""}
       ${props.bold ? "bold" : ""}
+      ${props.center ? "text-center" : ""}
       `}
     >
       <Slot />

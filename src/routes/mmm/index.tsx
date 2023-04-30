@@ -51,7 +51,7 @@ export default component$(() => {
         </Text>
         <Button variant="primary" label="hello button" />
       </div>
-      <div class="flex gap-4 flex-wrap p-7 md:p-10 md:gap-6 lg:gap-10">
+      <div class="flex gap-2 flex-wrap p-7 md:p-10 md:gap-4 lg:gap-8">
         <div class="flex flex-col align-center text-center w-full mb-3">
           <Text size="small">Was wir bieten</Text>
           <Text size="large" bold>
