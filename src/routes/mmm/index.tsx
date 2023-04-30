@@ -22,7 +22,7 @@ export default component$(() => {
         ]}
       />
       <div class="flex flex-col gap-4 p-7 md:p-10">
-        <Text size="large" uppercase>
+        <Text size="large" uppercase bold>
           About us
         </Text>
         <Text size="medium">
