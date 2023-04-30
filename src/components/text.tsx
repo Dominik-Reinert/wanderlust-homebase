@@ -24,8 +24,8 @@ function getSizeClasses(size: TextProps["size"]): string {
     case "small":
       return "text-sm md:text-base lg:text-lg";
     case "medium":
-      return "text-base md:text-lg lg:text-xlg";
+      return "text-base md:text-lg lg:text-xl";
     case "large":
-      return "text-lg md:text-xlg lg:text-2xlg";
+      return "text-xl md:text-2xl lg:text-3xl";
   }
 }

@@ -7,7 +7,9 @@ import { Text } from "~/components/text";
 import {
   ArcheryIcon,
   BookStackIcon,
+  ChatBubbleEmptyIcon,
   CutSolidWithCurveIcon,
+  HouseRoomsIcon,
   WifiIcon,
 } from "~/integrations/react/iconoir";
 
@@ -49,18 +51,30 @@ export default component$(() => {
         </Text>
         <Button variant="primary" label="hello button" />
       </div>
-      <div class="flex gap-4 flex-wrap p-7 md:p-10 ">
+      <div class="flex gap-4 flex-wrap p-7 md:p-10 md:gap-6 lg:gap-10">
+        <div class="flex flex-col align-center text-center w-full mb-3">
+          <Text size="small">Was wir bieten</Text>
+          <Text size="large" bold>
+            Services
+          </Text>
+        </div>
         <Service description="Kostenloses Wifi">
           <WifiIcon q:slot="icon" className="m-auto" />
         </Service>
         <Service description="Ergonomische Ausstattung">
           <CutSolidWithCurveIcon q:slot="icon" className="m-auto" />
         </Service>
+        <Service description="Meeting rooms">
+          <ChatBubbleEmptyIcon q:slot="icon" className="m-auto" />
+        </Service>
         <Service description="Community events">
           <ArcheryIcon q:slot="icon" className="m-auto" />
         </Service>
         <Service description="Workshops & Learning area">
           <BookStackIcon q:slot="icon" className="m-auto" />
+        </Service>
+        <Service description="Küche & Snacks">
+          <HouseRoomsIcon q:slot="icon" className="m-auto" />
         </Service>
       </div>
     </div>
