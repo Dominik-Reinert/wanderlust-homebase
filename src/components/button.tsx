@@ -1,11 +1,11 @@
-import { component$, useComputed$ } from "@builder.io/qwik";
+import { QRL, component$, useComputed$ } from "@builder.io/qwik";
 import { v4 } from "uuid";
 
 interface ButtonProps {
   id?: string;
   label: string;
   variant: "primary" | "secondary";
-  onClick?: Callback<void>;
+  onClick?: QRL<Callback<void>>;
 }
 
 export const Button = component$(
@@ -15,7 +15,7 @@ export const Button = component$(
       <div
         class={`${getButtonVariantClass(
           variant
-        )} cursor-pointer p-4  rounded border-2`}
+        )} cursor-pointer p-4  rounded border-2 w-fit`}
       >
         <label for={buttonId.value}>{label}</label>
         <button id={buttonId.value} onClick$={() => onClick?.()} />
