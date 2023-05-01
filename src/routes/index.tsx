@@ -2,6 +2,11 @@
 import { component$ } from "@builder.io/qwik";
 import { Button } from "~/components/button";
 import { Gallery } from "~/components/gallery";
+import {
+  aboutUsId,
+  packagesId,
+  servicesId,
+} from "~/components/home-section-ids";
 import { Package } from "~/components/package";
 import { ResponsiveFlexItem } from "~/components/responsive-flex-item";
 import { Service } from "~/components/service";
@@ -23,18 +28,21 @@ export default component$(() => {
           {
             imageUrl:
               "https://imagedelivery.net/gV_YLJoGO2jaxKnnl4mKxg/d2e6641a-7b95-4bfe-78e1-26ed549eb500/public",
-            title: "hello",
-            description: "this is some world description",
+            title: "Willkommen im Merzig mingle matrix",
+            description: "Mingle matrix: Das einzige Coworking in ganz Merzig",
+            sectionId: "about-us",
           },
           {
             imageUrl:
               "https://imagedelivery.net/gV_YLJoGO2jaxKnnl4mKxg/fcf44452-85d5-4626-488f-a062cfb92600/public",
-            title: "world",
-            description: "this is some hello description",
+            title: "Du hast die Kontrolle!",
+            description:
+              "Schnelles Internet, ergonomische Arbeitsplätze, coole Events und flexible Bezahlung - du bestimmst, was du willst",
+            sectionId: "services",
           },
         ]}
       />
-      <div class="flex flex-col gap-4 p-7 md:p-10">
+      <div id={aboutUsId} class="flex flex-col gap-4 p-7 md:p-10">
         <Text size="large" uppercase bold>
           About us
         </Text>
@@ -51,9 +59,12 @@ export default component$(() => {
           Events wie Mittagessen oder Billardspielen austauscht. Erleben Sie das
           pulsierende Stadtleben direkt vor unserer Tür!
         </Text>
-        <Button variant="primary" label="hello button" />
+        <Button variant="primary" label="Know more" />
       </div>
-      <div class="flex gap-2 flex-wrap p-7 md:p-10 md:gap-4 lg:gap-8">
+      <div
+        id={servicesId}
+        class="flex gap-2 flex-wrap p-7 md:p-10 md:gap-4 lg:gap-8"
+      >
         <div class="flex flex-col align-center text-center w-full mb-3">
           <Text size="small">Was wir bieten</Text>
           <Text size="large" bold>
@@ -92,7 +103,10 @@ export default component$(() => {
         </ResponsiveFlexItem>
       </div>
 
-      <div class="flex gap-2 flex-wrap p-7 md:p-10 md:gap-4 lg:gap-8">
+      <div
+        id={packagesId}
+        class="flex gap-2 flex-wrap p-7 md:p-10 md:gap-4 lg:gap-8"
+      >
         <div class="flex flex-col align-center text-center w-full mb-3">
           <Text size="large" bold>
             Cowork Pakete
