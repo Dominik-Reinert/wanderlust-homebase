@@ -12,7 +12,7 @@ export const Text = component$((props: TextProps) => {
     <div
       class={`${getSizeClasses(props.size)} 
       ${props.uppercase ? "uppercase" : ""}
-      ${props.bold ? "bold" : ""}
+      ${props.bold ? "font-bold" : ""}
       ${props.center ? "text-center" : ""}
       `}
     >

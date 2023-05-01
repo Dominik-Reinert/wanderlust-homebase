@@ -1,112 +1,94 @@
-import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
-
-import Counter from '~/components/starter/counter/counter';
-import Hero from '~/components/starter/hero/hero';
-import Infobox from '~/components/starter/infobox/infobox';
-import Starter from '~/components/starter/next-steps/next-steps';
+/* eslint-disable qwik/no-react-props */
+import { component$ } from "@builder.io/qwik";
+import { Button } from "~/components/button";
+import { Gallery } from "~/components/gallery";
+import { Package } from "~/components/package";
+import { Service } from "~/components/service";
+import { Text } from "~/components/text";
+import {
+  ArcheryIcon,
+  BookStackIcon,
+  ChatBubbleEmptyIcon,
+  CutSolidWithCurveIcon,
+  HouseRoomsIcon,
+  WifiIcon,
+} from "~/integrations/react/iconoir";
 
 export default component$(() => {
   return (
-    <>
-      <Hero />
-      <Starter />
-
-      <div role="presentation" class="ellipsis"></div>
-      <div role="presentation" class="ellipsis ellipsis-purple"></div>
-
-      <div class="container container-center container-spacing-xl">
-        <h3>
-          You can <span class="highlight">count</span>
-          <br /> on me
-        </h3>
-        <Counter />
+    <div>
+      <Gallery
+        items={[
+          {
+            imageUrl:
+              "https://imagedelivery.net/gV_YLJoGO2jaxKnnl4mKxg/d2e6641a-7b95-4bfe-78e1-26ed549eb500/public",
+            title: "hello",
+            description: "this is some world description",
+          },
+          {
+            imageUrl:
+              "https://imagedelivery.net/gV_YLJoGO2jaxKnnl4mKxg/fcf44452-85d5-4626-488f-a062cfb92600/public",
+            title: "world",
+            description: "this is some hello description",
+          },
+        ]}
+      />
+      <div class="flex flex-col gap-4 p-7 md:p-10">
+        <Text size="large" uppercase bold>
+          About us
+        </Text>
+        <Text size="medium">
+          Willkommen im Merzig Mingle Matrix - Ihrem innovativen Coworking-Raum
+          im Herzen von Merzig!
+        </Text>
+        <Text size="medium">
+          Unser Zentrum bietet ausreichend Parkplätze für Autos und liegt in
+          unmittelbarer Nähe zu den Bahnhöfen. Mit einer offenen Arbeitsfläche,
+          Meeting-Boxen und einer voll ausgestatteten Küche schaffen wir eine
+          inspirierende Umgebung für Kreativität und Zusammenarbeit. Hier
+          treffen Sie auf eine lebendige Community, die sich bei gemeinsamen
+          Events wie Mittagessen oder Billardspielen austauscht. Erleben Sie das
+          pulsierende Stadtleben direkt vor unserer Tür!
+        </Text>
+        <Button variant="primary" label="hello button" />
       </div>
-
-      <div class="container container-flex">
-        <Infobox>
-          <div q:slot="title" class="icon icon-cli">
-            CLI Commands
-          </div>
-          <>
-            <p>
-              <code>npm run dev</code>
-              <br />
-              Starts the development server and watches for changes
-            </p>
-            <p>
-              <code>npm run preview</code>
-              <br />
-              Creates production build and starts a server to preview it
-            </p>
-            <p>
-              <code>npm run build</code>
-              <br />
-              Creates production build
-            </p>
-            <p>
-              <code>npm run qwik add</code>
-              <br />
-              Runs the qwik CLI to add integrations
-            </p>
-          </>
-        </Infobox>
-
-        <div>
-          <Infobox>
-            <div q:slot="title" class="icon icon-apps">
-              Example Apps
-            </div>
-            <p>
-              Have a look at the <a href="/demo/flower">Flower App</a> or the{' '}
-              <a href="/demo/todolist">Todo App</a>.
-            </p>
-          </Infobox>
-
-          <Infobox>
-            <div q:slot="title" class="icon icon-community">
-              Community
-            </div>
-            <ul>
-              <li>
-                <span>Questions or just want to say hi? </span>
-                <a href="https://qwik.builder.io/chat" target="_blank">
-                  Chat on discord!
-                </a>
-              </li>
-              <li>
-                <span>Follow </span>
-                <a href="https://twitter.com/QwikDev" target="_blank">
-                  @QwikDev
-                </a>
-                <span> on Twitter</span>
-              </li>
-              <li>
-                <span>Open issues and contribute on </span>
-                <a href="https://github.com/BuilderIO/qwik" target="_blank">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <span>Watch </span>
-                <a href="https://qwik.builder.io/media/" target="_blank">
-                  Presentations, Podcasts, Videos, etc.
-                </a>
-              </li>
-            </ul>
-          </Infobox>
+      <div class="flex gap-2 flex-wrap p-7 md:p-10 md:gap-4 lg:gap-8">
+        <div class="flex flex-col align-center text-center w-full mb-3">
+          <Text size="small">Was wir bieten</Text>
+          <Text size="large" bold>
+            Services
+          </Text>
         </div>
+        <Service description="Kostenloses Wifi">
+          <WifiIcon q:slot="icon" className="m-auto" />
+        </Service>
+        <Service description="Ergonomische Ausstattung">
+          <CutSolidWithCurveIcon q:slot="icon" className="m-auto" />
+        </Service>
+        <Service description="Meeting rooms">
+          <ChatBubbleEmptyIcon q:slot="icon" className="m-auto" />
+        </Service>
+        <Service description="Community events">
+          <ArcheryIcon q:slot="icon" className="m-auto" />
+        </Service>
+        <Service description="Workshops & Learning area">
+          <BookStackIcon q:slot="icon" className="m-auto" />
+        </Service>
+        <Service description="Küche & Snacks">
+          <HouseRoomsIcon q:slot="icon" className="m-auto" />
+        </Service>
       </div>
-    </>
+
+      <div class="flex flex-col gap-10 md:gap-12">
+        <Text size="large" center bold>
+          Cowork Pakete
+        </Text>
+        <Package title="Tagespass" price="15€" deskType="flexible" />
+        <Package title="Wochenpass" price="70€" deskType="flexible" />
+        <Package title="Monatspass" price="200€" deskType="fixed" />
+        <Package title="Monatspass" price="150€" deskType="flexible" />
+        <Package title="Meeting room" price="10€ / h" deskType="flexible" />
+      </div>
+    </div>
   );
 });
-
-export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
-  meta: [
-    {
-      name: 'description',
-      content: 'Qwik site description',
-    },
-  ],
-};
