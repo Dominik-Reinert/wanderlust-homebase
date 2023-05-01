@@ -7,7 +7,7 @@ interface ServiceProps {
 
 export const Service = component$(({ description }: ServiceProps) => {
   return (
-    <div class="cursor-pointer w-full p-5  md:p-7 hover:bg-sky-50 hover:border hover:border-sky-200 hover:border-2 hover:p-4 ">
+    <div class="cursor-pointer w-full p-5  md:p-7 transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-100 md:duration-200 md:duration-300">
       <div class="text-3xl pb-3">
         <Slot name="icon" />
       </div>
