@@ -43,7 +43,9 @@ export const Gallery = component$((props: GalleryProps) => {
       >
         <NavArrowRightIcon className="absolute top-1/2 right-0 text-white" />
       </div>
-      <Item {...props.items[currentImage.value]} />
+      {props.items.map((item, index) => (
+        <Item key={index} {...item} hidden={index !== currentImage.value} />
+      ))}
     </div>
   );
 });
@@ -52,6 +54,7 @@ interface ItemProps {
   imageUrl: string;
   title: string;
   description: string;
+  hidden: boolean;
   sectionId:
     | typeof aboutUsId
     | typeof servicesId
@@ -60,11 +63,13 @@ interface ItemProps {
 }
 
 const Item = component$(
-  ({ imageUrl, title, description, sectionId }: ItemProps) => {
+  ({ imageUrl, title, description, sectionId, hidden }: ItemProps) => {
     return (
       <div
         key={title}
-        class={`w-full min-h-40vh bg-cover bg-center text-white flex flex-col p-10 md:p-15 bg-cover bg-no-repeat justify-between`}
+        class={`${
+          hidden ? "hidden" : ""
+        } w-full min-h-40vh bg-cover bg-center text-white flex flex-col p-10 md:p-15 bg-cover bg-no-repeat justify-between`}
         style={{
           background: `url(${imageUrl})`,
         }}
