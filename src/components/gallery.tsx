@@ -82,6 +82,7 @@ const ItemGoToSectionButton = component$(
     return (
       <Button
         variant="tertiary"
+        size="small"
         label={getItemButtonLabel(sectionId)}
         onClick={$(() => {
           const target = document.querySelector(`#${sectionId}`);

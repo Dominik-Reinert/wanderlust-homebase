@@ -1,7 +1,6 @@
 import type { QRL } from "@builder.io/qwik";
 import { component$, useComputed$ } from "@builder.io/qwik";
 import { v4 } from "uuid";
-import { Text } from "./text";
 
 interface ButtonProps {
   id?: string;

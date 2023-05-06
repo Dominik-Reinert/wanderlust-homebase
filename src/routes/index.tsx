@@ -59,7 +59,7 @@ export default component$(() => {
           Events wie Mittagessen oder Billardspielen austauscht. Erleben Sie das
           pulsierende Stadtleben direkt vor unserer Tür!
         </Text>
-        <Button variant="primary" label="Know more"  />
+        <Button variant="primary" size="medium" label="Know more" />
       </div>
       <div
         id={servicesId}
