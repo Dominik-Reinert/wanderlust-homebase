@@ -1,5 +1,5 @@
 /* eslint-disable qwik/no-react-props */
-import { Fragment, QwikMouseEvent, useVisibleTask$ } from "@builder.io/qwik";
+import { Fragment } from "@builder.io/qwik";
 import { component$, useSignal, $ } from "@builder.io/qwik";
 import { Text } from "./text";
 import type {
