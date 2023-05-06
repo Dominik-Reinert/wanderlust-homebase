@@ -62,7 +62,7 @@ const Item = component$(
     return (
       <div
         key={title}
-        class={`w-full min-h-30vh bg-cover bg-center text-white flex flex-col p-5 md:p-7 md:min-h-30vh bg-cover bg-no-repeat`}
+        class={`w-full min-h-40vh bg-cover bg-center text-white flex flex-col p-5 md:p-7 bg-cover bg-no-repeat`}
         style={{
           background: `url(${imageUrl})`,
         }}
