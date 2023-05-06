@@ -1,5 +1,5 @@
 /* eslint-disable qwik/no-react-props */
-import type { QwikMouseEvent } from "@builder.io/qwik";
+import { Fragment, QwikMouseEvent, useVisibleTask$ } from "@builder.io/qwik";
 import { component$, useSignal, $ } from "@builder.io/qwik";
 import { Text } from "./text";
 import type {
@@ -44,7 +44,10 @@ export const Gallery = component$((props: GalleryProps) => {
         <NavArrowRightIcon className="absolute top-1/2 right-0 text-white" />
       </div>
       {props.items.map((item, index) => (
-        <Item key={index} {...item} hidden={index !== currentImage.value} />
+        <Fragment key={index}>
+          <PreloadItem imageUrl={item.imageUrl} />
+          <Item {...item} hidden={index !== currentImage.value} />
+        </Fragment>
       ))}
     </div>
   );
@@ -61,6 +64,17 @@ interface ItemProps {
     | typeof packagesId
     | typeof contactId;
 }
+
+const PreloadItem = component$(({ imageUrl }: Pick<ItemProps, "imageUrl">) => {
+  return (
+    <div
+      class={`h-0 w-0`}
+      style={{
+        background: `url(${imageUrl})`,
+      }}
+    ></div>
+  );
+});
 
 const Item = component$(
   ({ imageUrl, title, description, sectionId, hidden }: ItemProps) => {
