@@ -64,14 +64,18 @@ const Item = component$(
     return (
       <div
         key={title}
-        class={`w-full min-h-40vh bg-cover bg-center text-white flex flex-col p-5 md:p-7 bg-cover bg-no-repeat`}
+        class={`w-full min-h-40vh bg-cover bg-center text-white flex flex-col p-10 md:p-15 bg-cover bg-no-repeat justify-between`}
         style={{
           background: `url(${imageUrl})`,
         }}
       >
-        <Text size="large">{title}</Text>
-        <Text size="small">{description}</Text>
-        <ItemGoToSectionButton sectionId={sectionId} />
+        <div>
+          <Text size="large">{title}</Text>
+          <Text size="small">{description}</Text>
+        </div>
+        <div>
+          <ItemGoToSectionButton sectionId={sectionId} />
+        </div>
       </div>
     );
   }
