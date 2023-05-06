@@ -22,6 +22,7 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
+        <title>Wanderlust Homebase</title>
       </head>
       <body class={``} lang="en">
         <RouterOutlet />
