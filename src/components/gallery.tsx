@@ -13,6 +13,7 @@ import {
   NavArrowRightIcon,
 } from "~/integrations/react/iconoir";
 import { exhaustiveCheck } from "~/utils/exhaustive-check";
+import { Button } from "./button";
 
 interface GalleryProps {
   items: ItemProps[];
@@ -79,8 +80,10 @@ const Item = component$(
 const ItemGoToSectionButton = component$(
   ({ sectionId }: Pick<ItemProps, "sectionId">) => {
     return (
-      <div
-        onClick$={$(() => {
+      <Button
+        variant="tertiary"
+        label={getItemButtonLabel(sectionId)}
+        onClick={$(() => {
           const target = document.querySelector(`#${sectionId}`);
           if (target) {
             target.scrollIntoView({
@@ -89,9 +92,7 @@ const ItemGoToSectionButton = component$(
             });
           }
         })}
-      >
-        {getItemButtonLabel(sectionId)}
-      </div>
+      />
     );
   }
 );
