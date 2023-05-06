@@ -36,7 +36,7 @@ export const Gallery = component$((props: GalleryProps) => {
       <div
         class="p-2"
         onClick$={$(() => {
-          if (currentImage.value < props.items.length) {
+          if (currentImage.value < props.items.length - 1) {
             currentImage.value++;
           }
         })}
