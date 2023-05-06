@@ -89,8 +89,21 @@ const ItemGoToSectionButton = component$(
           }
         })}
       >
-        click me
+        {getItemButtonLabel(sectionId)}
       </div>
     );
   }
 );
+
+function getItemButtonLabel(sectionId: ItemProps["sectionId"]): string {
+  switch (sectionId) {
+    case "about-us":
+      return "About us";
+    case "contact":
+      return "Contact";
+    case "packages":
+      return "Cowork Pakete";
+    case "services":
+      return "Services";
+  }
+}
