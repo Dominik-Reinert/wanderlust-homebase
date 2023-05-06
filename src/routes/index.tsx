@@ -40,6 +40,14 @@ export default component$(() => {
               "Schnelles Internet, ergonomische Arbeitsplätze, coole Events und flexible Bezahlung - du bestimmst, was du willst",
             sectionId: "services",
           },
+          {
+            imageUrl:
+              "https://imagedelivery.net/gV_YLJoGO2jaxKnnl4mKxg/fcf44452-85d5-4626-488f-a062cfb92600/public",
+            title: "So individuell wie du",
+            description:
+              "Ein fester Arbeitsplatz? Das wöchentliche Treffen mit Freunden? Oder doch nur zu Besuch? Unsere Pakete bieten für jeden das Richtige.",
+            sectionId: "packages",
+          },
         ]}
       />
       <div id={aboutUsId} class="flex flex-col gap-4 p-7 md:p-10">
