@@ -1,13 +1,17 @@
-import { component$, useSignal, $, QwikMouseEvent } from "@builder.io/qwik";
+/* eslint-disable qwik/no-react-props */
+import type { QwikMouseEvent } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
 import { Text } from "./text";
-import navArrowLeft from "iconoir/icons/nav-arrow-left.svg";
-import navArrowRight from "iconoir/icons/nav-arrow-right.svg";
 import type {
   aboutUsId,
   contactId,
   packagesId,
   servicesId,
 } from "./home-section-ids";
+import {
+  NavArrowLeftIcon,
+  NavArrowRightIcon,
+} from "~/integrations/react/iconoir";
 
 interface GalleryProps {
   items: ItemProps[];
@@ -17,26 +21,26 @@ export const Gallery = component$((props: GalleryProps) => {
   const currentImage = useSignal(0);
   return (
     <div class="relative">
-      <img
-        class="absolute top-1/2 left-0"
-        src={navArrowLeft}
-        alt="nav arrow left"
-        onClick$={() => {
+      <div
+        class="p-2"
+        onClick$={$(() => {
           if (currentImage.value >= props.items.length - 1) {
             currentImage.value--;
           }
-        }}
-      />
-      <img
-        class="absolute top-1/2 right-0"
-        src={navArrowRight}
-        alt="nav arrow right"
-        onClick$={() => {
+        })}
+      >
+        <NavArrowLeftIcon className="absolute top-1/2 left-0 text-white" />
+      </div>
+      <div
+        class="p-2"
+        onClick$={$(() => {
           if (currentImage.value < props.items.length) {
             currentImage.value++;
           }
-        }}
-      />
+        })}
+      >
+        <NavArrowRightIcon className="absolute top-1/2 right-0 text-white" />
+      </div>
       <Item {...props.items[currentImage.value]} />
     </div>
   );
@@ -90,17 +94,3 @@ const ItemGoToSectionButton = component$(
     );
   }
 );
-
-const scrollToPosition$ = $(function scrollToPosition(
-  event: QwikMouseEvent<HTMLDivElement, MouseEvent>,
-  target: string
-) {
-  const targetElement = document.querySelector(target);
-
-  if (target) {
-    targetElement?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
-});
