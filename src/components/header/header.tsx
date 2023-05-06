@@ -18,7 +18,7 @@ export const Header = component$(() => {
         </a>
       ) : null}
       <div class="p-3 pl-10">
-        <Text size="large">Merzig mingle matrix</Text>
+        <Text size="large">Wanderlust Homebase</Text>
       </div>
     </header>
   );
