@@ -12,6 +12,7 @@ import {
   NavArrowLeftIcon,
   NavArrowRightIcon,
 } from "~/integrations/react/iconoir";
+import { exhaustiveCheck } from "~/utils/exhaustive-check";
 
 interface GalleryProps {
   items: ItemProps[];
@@ -105,5 +106,8 @@ function getItemButtonLabel(sectionId: ItemProps["sectionId"]): string {
       return "Cowork Pakete";
     case "services":
       return "Services";
+    default:
+      exhaustiveCheck(sectionId);
+      return "";
   }
 }
