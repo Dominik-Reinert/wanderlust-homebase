@@ -1,48 +1,25 @@
-import {
-  JSXChildren,
-  component$,
-  useStore,
-  useVisibleTask$,
-} from "@builder.io/qwik";
-import { Text } from "./text";
+import { Slot, component$, useStore, useVisibleTask$ } from "@builder.io/qwik";
 
-export const modalStore: {
-  open: boolean;
-} = { open: false };
-
-export const modalContentStore: {
-  title: string;
-  content: JSXChildren;
-} = {
-  title: "",
-  content: (
-    <>
-      <div>hello</div>
-    </>
-  ),
-};
+export const modalStore: { visible: boolean } = { visible: false };
 
 export const Modal = component$(() => {
   const store = useStore(modalStore);
-  const contentStore = useStore(modalContentStore);
   useVisibleTask$(() => {
-    if (store.open) {
+    if (store.visible) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
   });
 
-  return store.open ? (
+  return store.visible ? (
     <div
-      class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full"
+      class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full text-black"
       style={{ top: `${window.scrollY}px` }}
     >
       <div class="flex flex-col gap-5 m-5 p-5 bg-white">
-        <Text size="huge" bold mono>
-          {contentStore.title}
-        </Text>
-        <div>{contentStore.content}</div>
+        <Slot name="title" />
+        <Slot />
       </div>
     </div>
   ) : null;
