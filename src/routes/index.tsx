@@ -74,6 +74,7 @@ export default component$(() => {
             Tausche dich mit unserer lebendigen Community bei gemeinsamen Events
             aus und erlebe das pulsierende Stadtleben direkt vor der Tür!
           </Text>
+          <Button variant="primary" size="medium" label="Know more" />
         </div>
         <div
           id={servicesId}
