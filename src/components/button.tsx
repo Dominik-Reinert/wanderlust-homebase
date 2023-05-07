@@ -31,7 +31,7 @@ export const Button = component$(
 function getButtonVariantClass(variant: ButtonProps["variant"]): string {
   switch (variant) {
     case "primary":
-      return `text-white bg-sky-600 hover:bg-sky-400`;
+      return `text-white bg-sky-600 hover:bg-sky-400 font-bold`;
     case "secondary":
       return `text-sky-600 bg-white border-sky-600 hover:border-sky-400 hover:text-sky-400`;
     case "tertiary":
