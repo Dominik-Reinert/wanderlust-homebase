@@ -21,9 +21,14 @@ import {
 } from "~/integrations/react/iconoir";
 import {
   coworkImageId,
+  dayPassImageId,
   ergonomicImageId,
+  fixedMonthPassImageId,
+  flexibleMonthPassImageId,
   getImageUrl,
+  meetingRoomImageId,
   packagesImageId,
+  weekPassImageId,
 } from "~/utils/image-ids";
 
 export default component$(() => {
@@ -126,19 +131,44 @@ export default component$(() => {
             </Text>
           </div>
           <ResponsiveFlexItem>
-            <Package title="Tagespass" price="15€" deskType="flexible" />
+            <Package
+              title="Tagespass"
+              price="15€"
+              deskType="flexible"
+              imageId={dayPassImageId}
+            />
           </ResponsiveFlexItem>
           <ResponsiveFlexItem>
-            <Package title="Wochenpass" price="70€" deskType="flexible" />
+            <Package
+              title="Wochenpass"
+              price="70€"
+              deskType="flexible"
+              imageId={weekPassImageId}
+            />
           </ResponsiveFlexItem>
           <ResponsiveFlexItem>
-            <Package title="Monatspass" price="200€" deskType="fixed" />
+            <Package
+              title="Monatspass"
+              price="200€"
+              deskType="fixed"
+              imageId={fixedMonthPassImageId}
+            />
           </ResponsiveFlexItem>
           <ResponsiveFlexItem>
-            <Package title="Monatspass" price="150€" deskType="flexible" />
+            <Package
+              title="Monatspass"
+              price="150€"
+              deskType="flexible"
+              imageId={flexibleMonthPassImageId}
+            />
           </ResponsiveFlexItem>
           <ResponsiveFlexItem>
-            <Package title="Meeting room" price="10€ / h" deskType="flexible" />
+            <Package
+              title="Meeting room"
+              price="10€ / h"
+              deskType="flexible"
+              imageId={meetingRoomImageId}
+            />
           </ResponsiveFlexItem>
         </div>
       </div>
