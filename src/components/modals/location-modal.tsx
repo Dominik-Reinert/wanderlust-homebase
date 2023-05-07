@@ -4,7 +4,7 @@ import { Text } from "../text";
 
 export const LocationModal = component$(() => {
   return (
-    <Modal name="location">
+    <Modal name="location" center>
       <Text size="huge" bold mono q:slot="title">
         Location
       </Text>

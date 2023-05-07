@@ -3,36 +3,40 @@ import { CancelIcon } from "~/integrations/react/iconoir";
 
 export const modalStore: { visible: null | string } = { visible: null };
 
-export const Modal = component$(({ name }: { name: string }) => {
-  const store = useStore(modalStore);
-  useVisibleTask$(({ track, cleanup }) => {
-    track(() => store.visible);
-    if (store.visible) {
-      document.body.style.overflow = "hidden";
-    }
-    cleanup(() => (document.body.style.overflow = "unset"));
-  });
+export const Modal = component$(
+  ({ name, center }: { name: string; center?: boolean }) => {
+    const store = useStore(modalStore);
+    useVisibleTask$(({ track, cleanup }) => {
+      track(() => store.visible);
+      if (store.visible) {
+        document.body.style.overflow = "hidden";
+      }
+      cleanup(() => (document.body.style.overflow = "unset"));
+    });
 
-  return store.visible === name ? (
-    <div
-      class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full text-black"
-      style={{ top: `${window.scrollY}px` }}
-      onClick$={() => (store.visible = null)}
-    >
+    return store.visible === name ? (
       <div
-        id="modal-content"
-        class="flex flex-col gap-5 m-5 p-5 bg-white relative  rounded-md top-[15%]"
-        onClick$={(event) => event.stopPropagation()}
+        class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full text-black"
+        style={{ top: `${window.scrollY}px` }}
+        onClick$={() => (store.visible = null)}
       >
         <div
-          class="absolute top-0 right-0 p-5"
-          onClick$={() => (store.visible = null)}
+          id="modal-content"
+          class={`flex flex-col gap-5 m-auto p-5 bg-white relative rounded-md top-[15%] w-[90%]  md:w-1/2 lg:w-1/2 ${
+            center ? "items-center" : ""
+          }`}
+          onClick$={(event) => event.stopPropagation()}
         >
-          <CancelIcon />
+          <div
+            class="absolute top-0 right-0 p-5 cursor-pointer"
+            onClick$={() => (store.visible = null)}
+          >
+            <CancelIcon />
+          </div>
+          <Slot name="title" />
+          <Slot />
         </div>
-        <Slot name="title" />
-        <Slot />
       </div>
-    </div>
-  ) : null;
-});
+    ) : null;
+  }
+);

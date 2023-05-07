@@ -40,7 +40,7 @@ export const Gallery = component$((props: GalleryProps) => {
         onClick$={goLeft$}
       >
         <div class="my-auto mx-0">
-          <NavArrowLeftIcon className="text-white text-2xl" />
+          <NavArrowLeftIcon className="text-white text-2xl lg:text-4xl cursor-pointer" />
         </div>
       </div>
       <div
@@ -48,10 +48,10 @@ export const Gallery = component$((props: GalleryProps) => {
         onClick$={goRight$}
       >
         <div class=" my-auto mx-0">
-          <NavArrowRightIcon className="text-white text-2xl" />
+          <NavArrowRightIcon className="text-white text-2xl lg:text-4xl cursor-pointer" />
         </div>
       </div>
-      <div class="absolute w-1/3 left-1/3 bottom-0 flex gap-1 pb-2">
+      <div class="absolute w-1/3 left-1/3 bottom-0 flex gap-1 pb-2 md:gap-3">
         <div class="grow" />
         {props.items.map((_, index) => (
           <RoundDot
@@ -196,7 +196,7 @@ const RoundDot = component$(
     const dotStyle = selected ? "bg-white" : "bg-transparent";
     return (
       <div
-        class={`z-10 w-2 md:w-4 h2 md:h-4 p-2 rounded-full border-2 border-white ${dotStyle}`}
+        class={`cursor-pointer z-10 w-2 md:w-4 h2 md:h-4 p-2 rounded-full border-2 border-white ${dotStyle}`}
         onClick$={() => onClick$?.()}
       />
     );
