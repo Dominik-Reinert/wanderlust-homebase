@@ -23,7 +23,7 @@ export const Package = component$(
               {title}
             </Text>
           </div>
-          <div>
+          <div class="text-rose-600">
             <Text size="huge" center>
               <sup class="text-sm md:text-base mr-1">€ </sup>
               {price}
