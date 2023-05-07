@@ -1,20 +1,23 @@
-import { Slot, component$, useStore, useOnDocument, $ } from "@builder.io/qwik";
+import {
+  Slot,
+  component$,
+  useStore,
+  useVisibleTask$,
+  $,
+} from "@builder.io/qwik";
 import { CancelIcon } from "~/integrations/react/iconoir";
 
 export const modalStore: { visible: null | string } = { visible: null };
 
 export const Modal = component$(({ name }: { name: string }) => {
   const store = useStore(modalStore);
-  useOnDocument(
-    "scroll",
-    $(() => {
-      if (store.visible) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "unset";
-      }
-    })
-  );
+  useVisibleTask$(({ track, cleanup }) => {
+    track(() => store.visible);
+    if (store.visible) {
+      document.body.style.overflow = "hidden";
+    }
+    cleanup(() => (document.body.style.overflow = "unset"));
+  });
 
   return store.visible === name ? (
     <div
