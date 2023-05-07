@@ -7,6 +7,7 @@ import {
 import { RouterHead } from "./components/router-head/router-head";
 
 import "./global.css";
+import { Modal } from "./components/modal";
 
 export default component$(() => {
   /**
@@ -25,8 +26,9 @@ export default component$(() => {
         <title>Wanderlust Homebase</title>
       </head>
       <body class={`bg-gray-50`} lang="en">
-          <RouterOutlet />
-          <ServiceWorkerRegister />
+        <Modal />
+        <RouterOutlet />
+        <ServiceWorkerRegister />
       </body>
     </QwikCityProvider>
   );
