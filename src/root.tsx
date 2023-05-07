@@ -20,9 +20,12 @@ export default component$(() => {
   return (
     <QwikCityProvider>
       <head>
-        <title>Homebase</title>
         <meta charSet="utf-8" />
         <meta name="author" content="Dominik Reinert" />
+        <meta
+          name="keywords"
+          content="cowork, merzig, saar, office, shared, digital, nomad, coworking"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
