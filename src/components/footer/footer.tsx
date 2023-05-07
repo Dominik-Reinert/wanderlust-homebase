@@ -3,7 +3,7 @@ import { Text } from "~/components/text";
 
 export const Footer = component$(() => {
   return (
-    <footer class="flex flex-col gap-5 bg-sky-300 p-3 pt-7 md:flex-row md:p-5 md:pt-10 lg:p-12 lg:pt-16">
+    <footer class="flex flex-col gap-5 bg-sky-300 p-3 pt-7 md:flex-row md:p-5 md:pt-10 lg:p-12 lg:pt-16 mx-4 mb-4 bg-white">
       <div class="grow">
         <Text size="large">Kontakt</Text>
         <a href={`tel:0049 1234 56 789`}>
