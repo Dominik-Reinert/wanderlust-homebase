@@ -133,40 +133,40 @@ export default component$(() => {
           <ResponsiveFlexItem>
             <Package
               title="Tagespass"
-              price="15€"
-              deskType="flexible"
+              price="15"
+              deskType="flexible desk"
               imageId={dayPassImageId}
             />
           </ResponsiveFlexItem>
           <ResponsiveFlexItem>
             <Package
               title="Wochenpass"
-              price="70€"
-              deskType="flexible"
+              price="70"
+              deskType="flexible desk"
               imageId={weekPassImageId}
             />
           </ResponsiveFlexItem>
           <ResponsiveFlexItem>
             <Package
               title="Monatspass"
-              price="200€"
-              deskType="fixed"
+              price="200"
+              deskType="fixed desk"
               imageId={fixedMonthPassImageId}
             />
           </ResponsiveFlexItem>
           <ResponsiveFlexItem>
             <Package
               title="Monatspass"
-              price="150€"
-              deskType="flexible"
+              price="150"
+              deskType="flexible desk"
               imageId={flexibleMonthPassImageId}
             />
           </ResponsiveFlexItem>
           <ResponsiveFlexItem>
             <Package
               title="Meeting room"
-              price="10€ / h"
-              deskType="flexible"
+              price="10 / h"
+              deskType="flexible desk"
               imageId={meetingRoomImageId}
             />
           </ResponsiveFlexItem>
