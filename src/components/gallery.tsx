@@ -135,7 +135,7 @@ const ItemGoToSectionButton = component$(
 const RoundDot = component$(({ selected }: { selected: boolean }) => {
   const dotStyle = selected ? "bg-white" : "bg-transparent";
   return (
-    <div class={`w-4 h-4 p-2 rounded-full border-2 border-white ${dotStyle}`} />
+    <div class={`w-2 md:w-4 h2 md:h-4 p-2 rounded-full border-2 border-white ${dotStyle}`} />
   );
 });
 
