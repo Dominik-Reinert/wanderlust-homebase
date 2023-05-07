@@ -22,7 +22,7 @@ export const Button = component$(
         onClick$={() => onClick?.()}
       >
         <label for={buttonId.value}>{label}</label>
-        <button id={buttonId.value} />
+        <button id={buttonId.value} aria-label={label} />
       </div>
     );
   }
@@ -31,9 +31,9 @@ export const Button = component$(
 function getButtonVariantClass(variant: ButtonProps["variant"]): string {
   switch (variant) {
     case "primary":
-      return `text-white bg-sky-600 hover:bg-sky-400 font-bold`;
+      return `text-white bg-sky-700 hover:bg-sky-500 font-bold`;
     case "secondary":
-      return `text-sky-600 bg-white border-sky-600 hover:border-sky-400 hover:text-sky-400`;
+      return `text-sky-700 bg-white border-sky-700 hover:border-sky-500 hover:text-sky-500`;
     case "tertiary":
       return `text-white bg-transparent border-white`;
   }
