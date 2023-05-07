@@ -20,7 +20,7 @@ export const Footer = component$(() => {
           <Text size="large">Impressum</Text>
         </a>
       </div>
-      <div>
+      <div class="text-end items-center flex">
         <Text size="small">© 2023. All rights reserved</Text>
       </div>
     </footer>
