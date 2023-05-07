@@ -19,6 +19,12 @@ import {
   HouseRoomsIcon,
   WifiIcon,
 } from "~/integrations/react/iconoir";
+import {
+  coworkImageId,
+  ergonomicImageId,
+  getImageUrl,
+  packagesImageId,
+} from "~/utils/image-ids";
 
 export default component$(() => {
   return (
@@ -26,26 +32,23 @@ export default component$(() => {
       <Gallery
         items={[
           {
-            imageUrl:
-              "https://imagedelivery.net/gV_YLJoGO2jaxKnnl4mKxg/d2e6641a-7b95-4bfe-78e1-26ed549eb500/public",
+            imageUrl: getImageUrl(coworkImageId),
             title: "Willkommen im Wanderlust Homebase",
             description: "Deine Nomad Coworking base in Merzig",
             sectionId: "about-us",
           },
           {
-            imageUrl:
-              "https://imagedelivery.net/gV_YLJoGO2jaxKnnl4mKxg/fcf44452-85d5-4626-488f-a062cfb92600/public",
+            imageUrl: getImageUrl(ergonomicImageId),
             title: "Du hast die Kontrolle!",
             description:
               "Schnelles Internet, ergonomische Arbeitsplätze, coole Events und flexible Bezahlung - du bestimmst, was du willst",
             sectionId: "services",
           },
           {
-            imageUrl:
-              "https://imagedelivery.net/gV_YLJoGO2jaxKnnl4mKxg/fcf44452-85d5-4626-488f-a062cfb92600/public",
+            imageUrl: getImageUrl(packagesImageId),
             title: "So individuell wie du",
             description:
-              "Ein fester Arbeitsplatz? Das wöchentliche Treffen mit Freunden? Oder doch nur zu Besuch? Unsere Pakete bieten für jeden das Richtige.",
+              "Ein fester Arbeitsplatz? Das wöchentliche Treffen mit Freunden? Oder doch nur zu Besuch?",
             sectionId: "packages",
           },
         ]}

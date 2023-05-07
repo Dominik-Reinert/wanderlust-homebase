@@ -100,17 +100,19 @@ const Item = component$(
         key={title}
         class={`${
           hidden ? "hidden" : ""
-        } w-full min-h-50vh md:min-h-70vh bg-cover bg-center text-white flex flex-col p-10 md:p-20 bg-cover bg-no-repeat justify-between`}
+        } flex flex-col w-full min-h-50vh md:min-h-70vh bg-cover bg-center text-white bg-cover bg-no-repeat bg-center `}
         style={{
-          background: `url(${imageUrl})`,
+          backgroundImage: `url(${imageUrl})`,
         }}
       >
-        <div>
-          <Text size="small">{title}</Text>
-          <Text size="large">{description}</Text>
-        </div>
-        <div>
-          <ItemGoToSectionButton sectionId={sectionId} />
+        <div class="grow flex flex-col justify-between w-full h-full p-10 md:p-20 grow before:z-0 before:absolute before:pointer-events-none before:inset-0 before:opacity-25 before:bg-black before:w-full before:h-full before:block">
+          <div class="relative z-10">
+            <Text size="small">{title}</Text>
+            <Text size="large">{description}</Text>
+          </div>
+          <div class="relative z-10">
+            <ItemGoToSectionButton sectionId={sectionId} />
+          </div>
         </div>
       </div>
     );
@@ -149,7 +151,7 @@ const RoundDot = component$(
     const dotStyle = selected ? "bg-white" : "bg-transparent";
     return (
       <div
-        class={`w-2 md:w-4 h2 md:h-4 p-2 rounded-full border-2 border-white ${dotStyle}`}
+        class={`z-10 w-2 md:w-4 h2 md:h-4 p-2 rounded-full border-2 border-white ${dotStyle}`}
         onClick$={() => onClick$?.()}
       />
     );
