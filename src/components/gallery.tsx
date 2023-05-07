@@ -16,7 +16,7 @@ import { exhaustiveCheck } from "~/utils/exhaustive-check";
 import { Button } from "./button";
 
 interface GalleryProps {
-  items: Omit<ItemProps, "hidden">[];
+  items: Omit<ItemProps, "hidden" | "onSwipe$">[];
 }
 
 export const Gallery = component$((props: GalleryProps) => {
