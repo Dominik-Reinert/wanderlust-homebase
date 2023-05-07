@@ -31,8 +31,8 @@ export const Gallery = component$((props: GalleryProps) => {
           }
         })}
       >
-        <div class=" my-auto mx-0">
-          <NavArrowLeftIcon className="text-white" />
+        <div class="my-auto mx-0">
+          <NavArrowLeftIcon className="text-white text-2xl" />
         </div>
       </div>
       <div
@@ -44,7 +44,7 @@ export const Gallery = component$((props: GalleryProps) => {
         })}
       >
         <div class=" my-auto mx-0">
-          <NavArrowRightIcon className="text-white" />
+          <NavArrowRightIcon className="text-white text-2xl" />
         </div>
       </div>
       {props.items.map((item, index) => (
@@ -87,7 +87,7 @@ const Item = component$(
         key={title}
         class={`${
           hidden ? "hidden" : ""
-        } w-full min-h-40vh bg-cover bg-center text-white flex flex-col p-10 md:p-15 bg-cover bg-no-repeat justify-between`}
+        } w-full min-h-40vh md:min-h-60vh bg-cover bg-center text-white flex flex-col p-10 md:p-20 bg-cover bg-no-repeat justify-between`}
         style={{
           background: `url(${imageUrl})`,
         }}
