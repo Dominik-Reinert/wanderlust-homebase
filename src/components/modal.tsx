@@ -22,6 +22,7 @@ export const Modal = component$(({ name }: { name: string }) => {
       <div
         id="modal-content"
         class="flex flex-col gap-5 m-5 p-5 bg-white relative  rounded-md top-[15%]"
+        onClick$={(event) => event.stopPropagation()}
       >
         <div
           class="absolute top-0 right-0 p-5"
