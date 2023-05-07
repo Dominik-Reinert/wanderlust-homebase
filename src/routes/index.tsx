@@ -68,14 +68,11 @@ export default component$(() => {
             im Herzen von Merzig!
           </Text>
           <Text size="medium">
-            Unser Zentrum bietet ausreichend Parkplätze für Autos und liegt in
-            unmittelbarer Nähe zu den Bahnhöfen. Mit einer offenen
-            Arbeitsfläche, Meeting-Boxen und einer voll ausgestatteten Küche
-            schaffen wir eine inspirierende Umgebung für Kreativität und
-            Zusammenarbeit. Hier treffen Sie auf eine lebendige Community, die
-            sich bei gemeinsamen Events wie Mittagessen oder Billardspielen
-            austauscht. Erleben Sie das pulsierende Stadtleben direkt vor
-            unserer Tür!
+            Unser Zentrum bietet zahlreiche Parkmöglichkeiten und ist nah an
+            Bahnhöfen gelegen. Genieße offene Arbeitsbereiche, Meeting-Boxen und
+            eine voll ausgestattete Küche in einer inspirierenden Umgebung.
+            Tausche dich mit unserer lebendigen Community bei gemeinsamen Events
+            aus und erlebe das pulsierende Stadtleben direkt vor der Tür!
           </Text>
           <Button variant="primary" size="medium" label="Know more" />
         </div>
