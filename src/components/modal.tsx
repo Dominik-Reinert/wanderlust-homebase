@@ -21,7 +21,7 @@ export const Modal = component$(({ name }: { name: string }) => {
     >
       <div
         id="modal-content"
-        class="flex flex-col gap-5 m-5 p-5 bg-white relative  rounded-md top-1/4"
+        class="flex flex-col gap-5 m-5 p-5 bg-white relative  rounded-md top-[15%]"
       >
         <div
           class="absolute top-0 right-0 p-5"
