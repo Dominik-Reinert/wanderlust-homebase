@@ -10,13 +10,13 @@ export const ContactModal = component$(() => {
       </Text>
       <a href={`tel:0049 160 722 84 11`}>
         <Text size="large" bold>
-          Telefon:{" "}
+          Telefon:
         </Text>
         <Text size="large">0049 160 722 84 11</Text>
       </a>
       <a href={`mailto:dore250393@gmail.com`}>
         <Text size="large" bold>
-          Email:{" "}
+          Email:
         </Text>
         <Text size="large">dore250393@gmail.com</Text>
       </a>
