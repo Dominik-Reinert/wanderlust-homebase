@@ -1,5 +1,5 @@
 /* eslint-disable qwik/no-react-props */
-import { component$ } from "@builder.io/qwik";
+import { $, component$, useStore } from "@builder.io/qwik";
 import { Button } from "~/components/button";
 import { Gallery } from "~/components/gallery";
 import {
@@ -7,6 +7,7 @@ import {
   packagesId,
   servicesId,
 } from "~/components/home-section-ids";
+import { modalStore } from "~/components/modal";
 import { Package } from "~/components/package";
 import { ResponsiveFlexItem } from "~/components/responsive-flex-item";
 import { Service } from "~/components/service";
@@ -32,6 +33,7 @@ import {
 } from "~/utils/image-ids";
 
 export default component$(() => {
+  const mStore = useStore(modalStore);
   return (
     <div class="flex flex-col">
       <Gallery
@@ -74,7 +76,14 @@ export default component$(() => {
             Tausche dich mit unserer lebendigen Community bei gemeinsamen Events
             aus und erlebe das pulsierende Stadtleben direkt vor der Tür!
           </Text>
-          <Button variant="primary" size="medium" label="Know more" />
+          <Button
+            variant="primary"
+            size="medium"
+            label="Know more"
+            onClick={$(() => {
+              mStore.visible = "know-more";
+            })}
+          />
         </div>
         <div
           id={servicesId}
