@@ -22,7 +22,7 @@ export const Modal = component$(
       >
         <div
           id="modal-content"
-          class={`flex flex-col gap-5 m-auto p-5 bg-white relative rounded-md top-[15%] max-h-[70%] overflow-y-scroll w-[90%]  md:w-1/2 lg:w-1/2 ${
+          class={`flex flex-col gap-5 m-auto p-5 bg-white relative rounded-md top-[15%] max-h-[70%] overflow-y-scroll w-[90%]  md:w-2/3 lg:w-2/3 ${
             center ? "items-center" : ""
           }`}
           onClick$={(event) => event.stopPropagation()}
