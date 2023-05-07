@@ -47,6 +47,13 @@ export const Gallery = component$((props: GalleryProps) => {
           <NavArrowRightIcon className="text-white text-2xl" />
         </div>
       </div>
+      <div class="absolute w-1/3 left-1/3 bottom-0 flex gap-1 pb-2">
+        <div class="grow" />
+        {props.items.map((_, index) => (
+          <RoundDot key={index} selected={index === currentImage.value} />
+        ))}
+        <div class="grow" />
+      </div>
       {props.items.map((item, index) => (
         <Fragment key={index}>
           <PreloadItem imageUrl={item.imageUrl} />
@@ -124,6 +131,13 @@ const ItemGoToSectionButton = component$(
     );
   }
 );
+
+const RoundDot = component$(({ selected }: { selected: boolean }) => {
+  const dotStyle = selected ? "bg-white" : "bg-transparent";
+  return (
+    <div class={`w-4 h-4 p-2 rounded-full border-2 border-white ${dotStyle}`} />
+  );
+});
 
 function getItemButtonLabel(sectionId: ItemProps["sectionId"]): string {
   switch (sectionId) {
