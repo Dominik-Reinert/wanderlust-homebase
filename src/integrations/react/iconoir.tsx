@@ -5,6 +5,7 @@ import {
   Archery,
   ArrowLeft,
   BookStack,
+  Cancel,
   ChatBubbleEmpty,
   CutSolidWithCurve,
   HouseRooms,
@@ -22,3 +23,4 @@ export const ChatBubbleEmptyIcon = qwikify$(ChatBubbleEmpty);
 export const ArrowLeftIcon = qwikify$(ArrowLeft);
 export const NavArrowLeftIcon = qwikify$(NavArrowLeft);
 export const NavArrowRightIcon = qwikify$(NavArrowRight);
+export const CancelIcon = qwikify$(Cancel);
