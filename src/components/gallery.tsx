@@ -25,12 +25,16 @@ export const Gallery = component$((props: GalleryProps) => {
     console.info("go left");
     if (currentImage.value > 0) {
       currentImage.value--;
+    } else {
+      currentImage.value = props.items.length - 1;
     }
   });
   const goRight$ = $(() => {
     console.info("go right");
     if (currentImage.value < props.items.length - 1) {
       currentImage.value++;
+    } else {
+      currentImage.value = 0;
     }
   });
   return (
