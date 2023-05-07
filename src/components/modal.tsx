@@ -17,10 +17,18 @@ export const Modal = component$(({ name }: { name: string }) => {
 
   return store.visible === name ? (
     <div
-      class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full text-black"
+      class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full text-black rounded"
       style={{ top: `${window.scrollY}px` }}
     >
-      <div class="flex flex-col gap-5 m-5 p-5 bg-white">
+      <div
+        id="modal-content"
+        class="flex flex-col gap-5 m-5 p-5 bg-white"
+        onClick$={(event, currentElement) => {
+          if (!currentElement.contains(event.target as Node)) {
+            store.visible = null;
+          }
+        }}
+      >
         <Slot name="title" />
         <Slot />
       </div>
