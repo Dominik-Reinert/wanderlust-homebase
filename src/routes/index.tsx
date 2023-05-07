@@ -33,7 +33,7 @@ import {
 
 export default component$(() => {
   return (
-    <div class="flex flex-col gap-5 md:gap-7 lg:gap-10">
+    <div class="flex flex-col">
       <Gallery
         items={[
           {
@@ -58,9 +58,9 @@ export default component$(() => {
           },
         ]}
       />
-      <div class="bg-white mx-4">
+      <div class="bg-white mx-4  gap-5 md:gap-7 lg:gap-10">
         <div id={aboutUsId} class="flex flex-col gap-4 p-7 md:p-10">
-          <Text size="huge"  bold mono>
+          <Text size="huge" bold mono>
             About us
           </Text>
           <Text size="medium">
@@ -84,7 +84,7 @@ export default component$(() => {
           class="flex gap-2 flex-wrap p-7 md:p-10 md:gap-4 lg:gap-8"
         >
           <div class="flex flex-col align-center w-full mb-3">
-            <Text size="huge" bold mono >
+            <Text size="huge" bold mono>
               Services
             </Text>
           </div>
@@ -125,7 +125,7 @@ export default component$(() => {
           class="flex gap-2 flex-wrap p-7 md:p-10 md:gap-4 lg:gap-8"
         >
           <div class="flex flex-col align-center w-full mb-3">
-            <Text size="huge" bold  mono>
+            <Text size="huge" bold mono>
               Cowork Pakete
             </Text>
           </div>

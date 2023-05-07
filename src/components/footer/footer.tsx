@@ -3,26 +3,21 @@ import { Text } from "~/components/text";
 
 export const Footer = component$(() => {
   return (
-    <footer class="flex flex-col gap-5 bg-sky-300 p-3 pt-7 md:flex-row md:p-5 md:pt-10 lg:p-12 lg:pt-16 mx-4 mb-4 bg-white">
+    <footer class="flex flex-col gap-5  p-3 md:p-5 md:flex-row bg-black text-white text-center">
       <div class="grow">
-        <Text size="large">Kontakt</Text>
-        <a href={`tel:0049 1234 56 789`}>
-          <Text size="small">Telefon: 0049 1234 56 789</Text>
-        </a>
-        <a href={`mailto:dore250393@gmail.com`}>
-          <Text size="small">Email: dore250393@gmail.com</Text>
+        <a href="/contact">
+          <Text size="medium">Kontakt</Text>
         </a>
       </div>
-      <div class="grow">
-        <Text size="large">Location</Text>
-        <Text size="small">66663 Merzig</Text>
+      <div class="grow cursor-pointer">
+        <Text size="medium">Location</Text>
       </div>
       <div class="grow cursor-pointer">
         <a href="/imprint">
-          <Text size="large">Impressum</Text>
+          <Text size="medium">Impressum</Text>
         </a>
       </div>
-      <div class="pt-5">
+      <div>
         <Text size="small">© 2023. All rights reserved</Text>
       </div>
     </footer>
