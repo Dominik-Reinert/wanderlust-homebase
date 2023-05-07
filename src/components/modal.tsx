@@ -13,7 +13,10 @@ export const Modal = component$(() => {
   });
 
   return store.open ? (
-    <div class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full">
+    <div
+      class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full"
+      style={{ top: `${window.scrollY}px` }}
+    >
       hello modal
     </div>
   ) : null;
