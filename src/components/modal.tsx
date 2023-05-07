@@ -21,12 +21,12 @@ export const Modal = component$(({ name }: { name: string }) => {
 
   return store.visible === name ? (
     <div
-      class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full text-black rounded"
+      class="absolute z-50 inset-0 bg-black bg-opacity-25 w-full h-full text-black"
       style={{ top: `${window.scrollY}px` }}
     >
       <div
         id="modal-content"
-        class="flex flex-col gap-5 m-5 p-5 bg-white relative"
+        class="flex flex-col gap-5 m-5 p-5 bg-white relative  rounded-md top-1/4"
         onClick$={(event, currentElement) => {
           if (!currentElement.contains(event.target as Node)) {
             store.visible = null;
