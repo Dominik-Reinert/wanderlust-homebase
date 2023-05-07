@@ -5,6 +5,7 @@ interface TextProps {
   uppercase?: boolean;
   bold?: boolean;
   center?: boolean;
+  mono?: boolean;
 }
 
 export const Text = component$((props: TextProps) => {
@@ -14,6 +15,7 @@ export const Text = component$((props: TextProps) => {
       ${props.uppercase ? "uppercase" : ""}
       ${props.bold ? "font-bold" : ""}
       ${props.center ? "text-center" : ""}
+      ${props.mono ? "font-mono" : ""}
       `}
     >
       <Slot />
