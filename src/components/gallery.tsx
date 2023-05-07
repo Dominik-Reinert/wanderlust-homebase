@@ -1,5 +1,5 @@
 /* eslint-disable qwik/no-react-props */
-import { Fragment } from "@builder.io/qwik";
+import { Fragment, QRL } from "@builder.io/qwik";
 import { component$, useSignal, $ } from "@builder.io/qwik";
 import { Text } from "./text";
 import type {
@@ -50,7 +50,13 @@ export const Gallery = component$((props: GalleryProps) => {
       <div class="absolute w-1/3 left-1/3 bottom-0 flex gap-1 pb-2">
         <div class="grow" />
         {props.items.map((_, index) => (
-          <RoundDot key={index} selected={index === currentImage.value} />
+          <RoundDot
+            key={index}
+            selected={index === currentImage.value}
+            onClick$={$(() => {
+              currentImage.value = index;
+            })}
+          />
         ))}
         <div class="grow" />
       </div>
@@ -132,12 +138,23 @@ const ItemGoToSectionButton = component$(
   }
 );
 
-const RoundDot = component$(({ selected }: { selected: boolean }) => {
-  const dotStyle = selected ? "bg-white" : "bg-transparent";
-  return (
-    <div class={`w-2 md:w-4 h2 md:h-4 p-2 rounded-full border-2 border-white ${dotStyle}`} />
-  );
-});
+const RoundDot = component$(
+  ({
+    selected,
+    onClick$,
+  }: {
+    selected: boolean;
+    onClick$?: QRL<Callback<void>>;
+  }) => {
+    const dotStyle = selected ? "bg-white" : "bg-transparent";
+    return (
+      <div
+        class={`w-2 md:w-4 h2 md:h-4 p-2 rounded-full border-2 border-white ${dotStyle}`}
+        onClick$={() => onClick$?.()}
+      />
+    );
+  }
+);
 
 function getItemButtonLabel(sectionId: ItemProps["sectionId"]): string {
   switch (sectionId) {
