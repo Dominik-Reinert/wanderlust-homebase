@@ -1,5 +1,6 @@
 /* eslint-disable qwik/no-react-props */
 import { $, component$, useStore } from "@builder.io/qwik";
+import { DocumentHead } from "@builder.io/qwik-city";
 import { Button } from "~/components/button";
 import { Gallery } from "~/components/gallery";
 import {
@@ -180,3 +181,47 @@ export default component$(() => {
     </div>
   );
 });
+
+export const head: DocumentHead = {
+  title: "Wanderlust homebase",
+  meta: [
+    {
+      name: "charSet",
+      content: "utf-8",
+    },
+    {
+      name: "author",
+      content: "Dominik Reinert",
+    },
+    {
+      name: "keywords",
+      content:
+        "cowork, merzig, saar, office, shared, digital, nomad, coworking",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1.0",
+    },
+    {
+      name: "description",
+      content:
+        "Homepage des Wanderlust homebase coworking in Merzig, Saarland, Deutschland.",
+    },
+    {
+      name: "og:title",
+      content: "Wanderlust homebase",
+    },
+    {
+      name: "og:description",
+      content: "Wanderlust homebase ist dein Coworking in Merzig.",
+    },
+    {
+      name: "og:url",
+      content: "wanderlust-homebase.netlify.com",
+    },
+    {
+      name: "og:url",
+      content: "website",
+    },
+  ],
+};
