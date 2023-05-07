@@ -24,24 +24,28 @@ export const Gallery = component$((props: GalleryProps) => {
   return (
     <div class="relative">
       <div
-        class="p-2"
+        class="absolute flex align-center w-1/3 h-full left-0 invisible md:visible"
         onClick$={$(() => {
           if (currentImage.value > 0) {
             currentImage.value--;
           }
         })}
       >
-        <NavArrowLeftIcon className="absolute top-1/2 left-0 text-white" />
+        <div class=" my-auto mx-0">
+          <NavArrowLeftIcon className="text-white" />
+        </div>
       </div>
       <div
-        class="p-2"
+        class="absolute flex justify-end align-center w-1/3 h-full right-0 invisible md:visible"
         onClick$={$(() => {
           if (currentImage.value < props.items.length - 1) {
             currentImage.value++;
           }
         })}
       >
-        <NavArrowRightIcon className="absolute top-1/2 right-0 text-white" />
+        <div class=" my-auto mx-0">
+          <NavArrowRightIcon className="text-white" />
+        </div>
       </div>
       {props.items.map((item, index) => (
         <Fragment key={index}>
@@ -89,8 +93,8 @@ const Item = component$(
         }}
       >
         <div>
-          <Text size="large">{title}</Text>
-          <Text size="small">{description}</Text>
+          <Text size="small">{title}</Text>
+          <Text size="large">{description}</Text>
         </div>
         <div>
           <ItemGoToSectionButton sectionId={sectionId} />

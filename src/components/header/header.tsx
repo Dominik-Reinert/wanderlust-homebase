@@ -7,7 +7,7 @@ export const Header = component$(() => {
   const loc = useLocation();
   const needsBack = loc.url.pathname !== "/";
   return (
-    <header class={`min-h-10vh p-3 relative bg-sky-300 `}>
+    <header class={`min-h-10vh p-2 relative `}>
       <div class="hidden p-10 font-saver text-sm text-base text-lg text-xl text-2xl text-sky-400 text-sky-600 bg-white border-sky-400 border-sky-600 rounded border-2 text-white bg-sky-600"></div>
       {needsBack ? (
         <a
@@ -17,9 +17,7 @@ export const Header = component$(() => {
           <ArrowLeftIcon />
         </a>
       ) : null}
-      <div class="p-3 pl-10">
-        <Text size="large">Wanderlust Homebase</Text>
-      </div>
+      <Text size="medium">Wanderlust Homebase</Text>
     </header>
   );
 });

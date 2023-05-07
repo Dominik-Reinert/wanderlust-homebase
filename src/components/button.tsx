@@ -18,7 +18,7 @@ export const Button = component$(
         class={`
         ${getButtonVariantClass(variant)}
         ${getButtonSizeClass(size)}
-          cursor-pointer p-4  rounded border-2 w-fit`}
+          cursor-pointer rounded border-2 w-fit`}
         onClick$={() => onClick?.()}
       >
         <label for={buttonId.value}>{label}</label>
