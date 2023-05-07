@@ -1,5 +1,5 @@
 /* eslint-disable qwik/no-react-props */
-import { Fragment, QRL } from "@builder.io/qwik";
+import { Fragment, QRL, useStore, useVisibleTask$ } from "@builder.io/qwik";
 import { component$, useSignal, $ } from "@builder.io/qwik";
 import { Text } from "./text";
 import type {
@@ -21,15 +21,23 @@ interface GalleryProps {
 
 export const Gallery = component$((props: GalleryProps) => {
   const currentImage = useSignal(0);
+  const goLeft$ = $(() => {
+    console.info("go left");
+    if (currentImage.value > 0) {
+      currentImage.value--;
+    }
+  });
+  const goRight$ = $(() => {
+    console.info("go right");
+    if (currentImage.value < props.items.length - 1) {
+      currentImage.value++;
+    }
+  });
   return (
     <div class="relative">
       <div
         class="absolute flex align-center w-1/3 h-full left-0 invisible md:visible z-10"
-        onClick$={$(() => {
-          if (currentImage.value > 0) {
-            currentImage.value--;
-          }
-        })}
+        onClick$={goLeft$}
       >
         <div class="my-auto mx-0">
           <NavArrowLeftIcon className="text-white text-2xl" />
@@ -37,11 +45,7 @@ export const Gallery = component$((props: GalleryProps) => {
       </div>
       <div
         class="absolute flex justify-end align-center w-1/3 h-full right-0 invisible md:visible z-10"
-        onClick$={$(() => {
-          if (currentImage.value < props.items.length - 1) {
-            currentImage.value++;
-          }
-        })}
+        onClick$={goRight$}
       >
         <div class=" my-auto mx-0">
           <NavArrowRightIcon className="text-white text-2xl" />
@@ -63,7 +67,17 @@ export const Gallery = component$((props: GalleryProps) => {
       {props.items.map((item, index) => (
         <Fragment key={index}>
           <PreloadItem imageUrl={item.imageUrl} />
-          <Item {...item} hidden={index !== currentImage.value} />
+          <Item
+            {...item}
+            hidden={index !== currentImage.value}
+            onSwipe$={$((swiped: "left" | "right") => {
+              if (swiped === "right") {
+                goRight$();
+              } else {
+                goLeft$();
+              }
+            })}
+          />
         </Fragment>
       ))}
     </div>
@@ -80,6 +94,7 @@ interface ItemProps {
     | typeof servicesId
     | typeof packagesId
     | typeof contactId;
+  onSwipe$: QRL<(swiped: "left" | "right") => void>;
 }
 
 const PreloadItem = component$(({ imageUrl }: Pick<ItemProps, "imageUrl">) => {
@@ -94,7 +109,18 @@ const PreloadItem = component$(({ imageUrl }: Pick<ItemProps, "imageUrl">) => {
 });
 
 const Item = component$(
-  ({ imageUrl, title, description, sectionId, hidden }: ItemProps) => {
+  ({
+    imageUrl,
+    title,
+    description,
+    sectionId,
+    hidden,
+    onSwipe$,
+  }: ItemProps) => {
+    const swipeStore: { x: null | number; y: null | number } = useStore({
+      x: null,
+      y: null,
+    });
     return (
       <div
         key={title}
@@ -103,6 +129,25 @@ const Item = component$(
         } flex flex-col w-full min-h-50vh md:min-h-70vh bg-cover bg-center text-white bg-cover bg-no-repeat bg-center `}
         style={{
           backgroundImage: `url(${imageUrl})`,
+        }}
+        onTouchStart$={(event) => {
+          swipeStore.x = event.touches[0].clientX;
+          swipeStore.y = event.touches[0].clientY;
+        }}
+        onTouchEnd$={(event) => {
+          if (swipeStore.x !== null && swipeStore.y !== null) {
+            const endTouch = event.changedTouches[0];
+            const diffX = endTouch.clientX - swipeStore.x;
+            const diffY = endTouch.clientY - swipeStore.y;
+
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+              if (diffX > 0) {
+                onSwipe$("left");
+              } else {
+                onSwipe$("right");
+              }
+            }
+          }
         }}
       >
         <div class="grow flex flex-col justify-between w-full h-full p-10 md:p-20 grow before:z-0 before:absolute before:pointer-events-none before:inset-0 before:opacity-25 before:bg-black before:w-full before:h-full before:block">
