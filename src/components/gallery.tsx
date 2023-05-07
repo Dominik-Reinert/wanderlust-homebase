@@ -100,7 +100,7 @@ const Item = component$(
         key={title}
         class={`${
           hidden ? "hidden" : ""
-        } w-full min-h-40vh md:min-h-60vh bg-cover bg-center text-white flex flex-col p-10 md:p-20 bg-cover bg-no-repeat justify-between`}
+        } w-full min-h-50vh md:min-h-70vh bg-cover bg-center text-white flex flex-col p-10 md:p-20 bg-cover bg-no-repeat justify-between`}
         style={{
           background: `url(${imageUrl})`,
         }}
