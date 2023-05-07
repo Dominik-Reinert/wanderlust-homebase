@@ -24,9 +24,11 @@ export default component$(() => {
         <RouterHead />
         <title>Wanderlust Homebase</title>
       </head>
-      <body class={``} lang="en">
-        <RouterOutlet />
-        <ServiceWorkerRegister />
+      <body class={`bg-gray-50`} lang="en">
+        <div class="bg-white m-4">
+          <RouterOutlet />
+          <ServiceWorkerRegister />
+        </div>
       </body>
     </QwikCityProvider>
   );
