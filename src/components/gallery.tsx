@@ -24,7 +24,7 @@ export const Gallery = component$((props: GalleryProps) => {
   return (
     <div class="relative">
       <div
-        class="absolute flex align-center w-1/3 h-full left-0 invisible md:visible"
+        class="absolute flex align-center w-1/3 h-full left-0 invisible md:visible z-10"
         onClick$={$(() => {
           if (currentImage.value > 0) {
             currentImage.value--;
@@ -36,7 +36,7 @@ export const Gallery = component$((props: GalleryProps) => {
         </div>
       </div>
       <div
-        class="absolute flex justify-end align-center w-1/3 h-full right-0 invisible md:visible"
+        class="absolute flex justify-end align-center w-1/3 h-full right-0 invisible md:visible z-10"
         onClick$={$(() => {
           if (currentImage.value < props.items.length - 1) {
             currentImage.value++;
