@@ -26,7 +26,6 @@ export default component$(() => {
         <title>Wanderlust Homebase</title>
       </head>
       <body class={`bg-gray-50`} lang="en">
-        <Modal />
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
